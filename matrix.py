@@ -3,8 +3,6 @@ def default_matrix_multiplication(a: List, b: List) -> List:
     """
     Multiplication only for 2x2 matrices
     """
-    if len(a) != 2 or len(a[0]) != 2 or len(b) != 2 or len(b[0]) != 2:
-        raise Exception("Matrices are not 2x2")
     new_matrix = [
         [a[0][0] * b[0][0] + a[0][1] * b[1][0], a[0][0] * b[0][1] + a[0][1] * b[1][1]],
         [a[1][0] * b[0][0] + a[1][1] * b[1][0], a[1][0] * b[0][1] + a[1][1] * b[1][1]],
@@ -28,11 +26,8 @@ def matrix_subtraction(matrix_a: List, matrix_b: List):
 
 def split_matrix(a: List,) -> Tuple[List, List, List, List]:
     """
-    Given an even length matrix, returns the top_left, top_right, bot_left, bot_rightquadrant.
+    Given an even length matrix, returns the top_left, top_right, bot_left, bot_right quadrant.
     """
-    if len(a) % 2 != 0 or len(a[0]) % 2 != 0:
-        raise Exception("Odd matrices are not supported!")
-
     matrix_length = len(a)
     mid = matrix_length // 2
 
@@ -52,8 +47,8 @@ def matrix_dimensions(matrix: List) -> Tuple[int, int]:
 
 
 def print_matrix(matrix: List) -> None:
-    for i in range(len(matrix)):
-        print(matrix[i])
+    for row in matrix:
+        print(row)
 
 def multiply_default(matrix_a,matrix_b):
   # Initialize the result matrix with zeros
