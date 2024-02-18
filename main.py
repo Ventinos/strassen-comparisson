@@ -7,14 +7,14 @@ import matplotlib.pyplot as plt
 
 from matrix import *
 from strassen import *
-"""Argv content description:
+
+"""
+Argv content description:
   * Argv[0] = rows
   * Argv[1] = columns
   * Argv[2] = min_number in matrix
   * Argv[3] = max_number in matrix
 """
-
-
 def main():
   rows = int(sys.argv[1])
   columns = int(sys.argv[2])
