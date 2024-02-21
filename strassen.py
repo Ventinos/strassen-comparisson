@@ -7,7 +7,7 @@ def actual_strassen(matrix_a: List, matrix_b: List) -> List:
   Recursive function to calculate the product of two matrices, using the Strassen Algorithm.  It only supports even length matrices.
   """
   if matrix_dimensions(matrix_a) == (2, 2):
-    return default_matrix_multiplication(matrix_a, matrix_b)
+    return matrix_multiplication(matrix_a, matrix_b)
 
   a, b, c, d = split_matrix(matrix_a)
   e, f, g, h = split_matrix(matrix_b)
@@ -26,9 +26,8 @@ def actual_strassen(matrix_a: List, matrix_b: List) -> List:
   bot_right = matrix_subtraction(matrix_subtraction(matrix_addition(t1, t5), t3), t7)
 
   # construct the new matrix from our 4 quadrants
-  new_matrix = []
-  for i in range(len(top_right)):
-    new_matrix.append(top_left[i] + top_right[i])
-  for i in range(len(bot_right)):
-    new_matrix.append(bot_left[i] + bot_right[i])
+  top_combined = np.concatenate((top_left, top_right), axis=1)
+  bot_combined = np.concatenate((bot_left, bot_right), axis=1)
+  new_matrix = np.concatenate((top_combined, bot_combined), axis=0)
+
   return new_matrix
